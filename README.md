@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## **FinanceFlow** 
 
-## Getting Started
+Full-Stack Expense Tracker
 
-First, run the development server:
+FinanceFlow is a modern, responsive financial dashboard built with **Next.js**, **TypeScript**, and **MongoDB**. It allows users to track income and expenses, visualize spending habits through interactive charts, and gain automated financial insights.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## **Check out the live app here:** 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+https://finance-flow-anyas-projects-2579232b.vercel.app/
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⭐ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Unified Dashboard
+- **Real-time Totals:** Automatic calculation of Balance, Income, and Expenses.
+- **Interactive Visuals:** Live Area Charts for balance trends and Pie Charts for spending breakdown using **Recharts**.
+- **Quick Entry:** Streamlined form for adding transactions directly from the main view.
 
-## Learn More
+### 2. Advanced Transaction Management
+- **Full Ledger:** A dedicated tab for viewing every transaction ever recorded.
+- **Search & Sort:** Instantly filter transactions by description or category, and sort by amount.
+- **Admin Controls:** Role-Based Access Control (RBAC) allows Admins to Add, Edit, and Delete data, while "User" mode provides a read-only experience.
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Smart Insights
+- **Savings Rate:** Automated calculation of your monthly savings percentage.
+- **Behavior Tracking:** Identifies your most frequent spending categories.
+- **Deep Dive:** Highlights your biggest single expense and provides a contextual financial health check.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+- **Frontend:** Next.js 15 (App Router), Tailwind CSS, Lucide React (Icons).
+- **Backend:** Next.js API Routes (Serverless).
+- **Database:** MongoDB Atlas with Mongoose.
+- **Charts:** Recharts.
+- **Notifications:** React Hot Toast.
+- **Language:** TypeScript.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚙️ Local Setup Instructions
+
+Follow these steps to run the project on your local machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/anya-yaya/FinanceFlow.git](https://github.com/anya-yaya/FinanceFlow.git)
+   cd FinanceFlow
+
+2. **Install dependcies:**
+    ```bash
+    npm install lucide-react react-hot-toast mongoose recharts
+    
+3. **Set up environmental variables:**
+   
+   Create a .env.local file in the root directory and add your MongoDB connection string:
+   ```bash
+   MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/FinanceFlow
+
+4. Run the development server:
+   ```bash
+   npm run dev
+
+  Open http://localhost:3000 in your browser
+   
+--- 
+
+## 🛡️ Security & Roles
+
+FinanceFlow implements a frontend/backend security bridge:
+
+▫️Frontend: Logic gates hide administrative UI (Forms/Action buttons) based on the role state.
+
+▫️Backend: API routes verify the x-user-role header before allowing POST, PATCH, or DELETE operations.
+
+## 📜 License
+
+This project is licensed under the MIT License. You are free to use, modify, and distribute this software.
