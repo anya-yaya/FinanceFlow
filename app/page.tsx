@@ -318,7 +318,7 @@ export default function Dashboard() {
                <TransactionTable 
                 items={sortedTransactions} 
                 role={role} 
-                onEdit={(t) => {setEditingId(t._id); setFormData({amount: t.amount.toString(), category: t.category, type: t.type, description: t.description}); window.scrollTo({top:0, behavior:'smooth'})}} 
+                onEdit={(t: any) => {setEditingId(t._id); setFormData({amount: t.amount.toString(), category: t.category, type: t.type, description: t.description}); window.scrollTo({top:0, behavior:'smooth'})}} 
                 onDelete={handleDelete} 
                 showActions={true} 
               />
