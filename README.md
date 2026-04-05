@@ -6,7 +6,7 @@ FinanceFlow is a modern, responsive financial dashboard built with **Next.js**, 
 
 ## **Check out the live app here:** 
 
-https://finance-flow-anyas-projects-2579232b.vercel.app/
+https://finance-flow-three-xi.vercel.app/
 ---
 
 ## ⭐ Key Features
