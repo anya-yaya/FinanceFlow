@@ -399,7 +399,7 @@ function StatCard({ title, value, icon }: any) {
 
 function TransactionForm({ formData, setFormData, handleSubmit, editingId, setEditingId }: any) {
   return (
-    <form onSubmit={handleSubmit} className={`p-6 rounded-3xl border transition-all duration-300 ${editingId ? 'border-amber-500 bg-amber-500/5' : 'bg-slate-900 border-slate-800'} flex flex-wrap gap-4 items-end`}>
+    <form onSubmit={handleSubmit} className={`p-6 rounded-3xl border transition-all duration-300 ${editingId ? 'border-amber-500 bg-amber-500/5' : 'bg-slate-900 border-slate-800'} grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap gap-4 items-end`}>
       <div className="flex-1 min-w-[200px]">
         <label className="text-[10px] font-bold text-slate-500 uppercase ml-1">Description</label>
         <input required value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full bg-slate-950 border border-slate-800 p-3 rounded-xl mt-1 outline-none focus:border-blue-500" placeholder="Expense name..." />
@@ -443,19 +443,22 @@ function TransactionForm({ formData, setFormData, handleSubmit, editingId, setEd
 
 function TransactionTable({ items, role, onEdit, onDelete, showActions }: any) {
   return (
-          <table className="w-full text-left">
+        <div className="overflow-x-auto"> 
+          <table className="w-full text-left min-w-[500px]">
             <thead className="bg-slate-800/50 text-xs text-slate-500 uppercase font-bold">
               <tr>
                 <th className="p-4">Transaction</th>
                 <th className="p-4">Category</th>
                 <th className="p-4 text-right">Amount</th>
                 {showActions && role === 'admin' && 
-                <th className="p-4">Actions</th>}
+                <th className="p-4 text-right">Actions</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800">
               {items.length === 0 ? (
-                <tr><td colSpan={role === 'admin' ? 4 : 3} className="p-8 text-center text-slate-500 italic">No transactions found.</td></tr>
+                <tr>
+                  <td colSpan={role === 'admin' ? 4 : 3} className="p-8 text-center text-slate-500 italic">No transactions found.</td>
+                </tr>
                ) : (
                  items.map((t: any) => (
                   <tr key={t._id} className="group hover:bg-slate-800/30 transition-colors">
@@ -467,14 +470,13 @@ function TransactionTable({ items, role, onEdit, onDelete, showActions }: any) {
                     {/* ACTION COLUMN: Only visible to Admin */}
                     {showActions && role === 'admin' && (
                       <td className="p-4 text-right">
-                        <div className="flex justify-end">
-                          <button onClick={() => onEdit(t)} className="p-2 text-slate-500 hover:text-blue-400 hover:bg-blue-400/10 rounded-lg transition-all opacity-0 group-hover:opacity-100" title="Edit Transaction">  
-                            <SquarePen size={16} /> 
+                        <div className="flex justify-end gap-1">
+                          <button onClick={() => onEdit(t)} className="p-2 text-blue-400 bg-blue-400/10 lg:bg-transparent lg:text-slate-500 lg:hover:text-blue-400 lg:hover:bg-blue-400/10 rounded-lg transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100" title="Edit Transaction">
+                            <SquarePen size={16} />
                           </button>
-
-                          <button onClick={() => onDelete(t._id)} className="p-2 text-slate-500 hover:text-rose-500 hover:bg-rose-500/10 rounded-lg transition-all opacity-0 group-hover:opacity-100" title="Delete Transaction">                      
-                            <Trash2 size={16} />
-                          </button>
+                          <button onClick={() => onDelete(t._id)} className="p-2 text-rose-500 bg-rose-500/10 lg:bg-transparent lg:text-slate-500 lg:hover:text-rose-500 lg:hover:bg-rose-500/10 rounded-lg transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100" title="Delete Transaction">
+                        <Trash2 size={16} />
+                      </button> 
                         </div>
                       </td>
                     )}
@@ -482,7 +484,8 @@ function TransactionTable({ items, role, onEdit, onDelete, showActions }: any) {
                 ))
               )}
             </tbody>
-          </table>  
+          </table> 
+        </div> 
   );
 }
 
