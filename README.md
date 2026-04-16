@@ -45,7 +45,7 @@ Follow these steps to run the project on your local machine:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/anya-yaya/FinanceFlow.git](https://github.com/anya-yaya/FinanceFlow.git)
+   git clone [https://github.com/anya-yaya/FinanceFlow.git]
    cd FinanceFlow
 
 2. **Install dependcies:**
